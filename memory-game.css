@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Architects Daughter", cursive;
+	font-size: 40px;
+}
+
+/*
+loading-overlay
+*/
+
+.loading-overlay {
+	background-color: rgba(0, 188, 212, 0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.loading-overlay span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: white;
+	background-color: teal;
+	padding: 15px 27px;
+	border-radius: 8px;
+	font-variant: small-caps;
+	cursor: pointer;
+	transform: translate(-50%, -50%);
+}
+.info-container {
+	width: 1080px;
+	margin: 20px auto 20px;
+	padding: 10px;
+	background-color: #f6f6f6;
+	border: 2px solid #2196f3;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+}
+.info-container div:last-child {
+	text-align: right;
+}
+.memory-game-container {
+	width: 1100px;
+	height: 800px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(5, auto);
+	grid-template-rows: repeat(4, auto);
+}
+.memory-game-container.no-click {
+	pointer-events: none;
+}
+.memory-game-container .game-block {
+	height: 200px;
+	width: 200px;
+	transition: transform 0.5s;
+	cursor: pointer;
+	position: relative;
+	margin: 0 10px 20px;
+	transform-style: preserve-3d;
+}
+.memory-game-container .game-block .front {
+	background-color: aquamarine;
+	border: 2px solid #2196f3;
+	line-height: 200px;
+}
+.memory-game-container .game-block .front img {
+	width: 100%;
+	height: 100%;
+}
+.memory-game-container .game-block .back {
+	background-color: transparent;
+	border: 2px solid #2196f3;
+	transform: rotateY(180deg);
+}
+.memory-game-container .game-block .back img {
+	width: 100%;
+	height: 100%;
+}
+.memory-game-container .game-block .face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	backface-visibility: hidden;
+}
+.memory-game-container .game-block.flipp,
+.memory-game-container .game-block.match {
+	transform: rotateY(180deg);
+}
